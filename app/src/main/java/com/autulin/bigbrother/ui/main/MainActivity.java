@@ -11,13 +11,11 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.autulin.bigbrother.R;
 import com.autulin.bigbrother.model.picture.Picture;
@@ -108,8 +106,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     public void onLoadError(String msg) {
         mSwipeLayout.setRefreshing(false);
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-        Log.e("main", "onLoadError: " + msg);
+        Snackbar.make(mList, msg, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
@@ -144,14 +141,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     public void onActionError(String msg) {
         mPd.dismiss();
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-        Log.e("main", "onLoadError: " + msg);
+        Snackbar.make(mList, msg, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
     public void onActionFinish() {
         mPd.dismiss();
-        Snackbar.make(mList,"操作成功",Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(mList, "操作成功", Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
@@ -195,8 +191,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
             public ViewHolder(View itemView) {
                 super(itemView);
-                textView = (TextView) itemView.findViewById(R.id.item_tv);
-                imageView = (ImageView) itemView.findViewById(R.id.item_iv);
+                textView = itemView.findViewById(R.id.item_tv);
+                imageView = itemView.findViewById(R.id.item_iv);
             }
         }
     }
