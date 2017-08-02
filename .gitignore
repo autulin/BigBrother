@@ -6,3 +6,9 @@
 /captures
 .externalNativeBuild
 /.idea/
+/backEnd/.settings/
+/backEnd/target/
+/backEnd/.idea/
+/backEnd/.classpath
+/backEnd/capture.iml
+/backEnd/.project
