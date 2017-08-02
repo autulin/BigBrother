@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>首页</title>
+</head>
+<body>
+<table>
+    <span th:text="${one.date}"></span>
+    <img  th:src="@{'data:image/jpeg;base64,'+${one.picBase64}}" />
+
+    <tr>
+        <th>时间</th>
+        <th>图片</th>
+    </tr>
+    <tr th:each="picuture : ${pictures}">
+        <td th:text="${picuture.date}">Onions</td>
+        <td><!--  th:text="${picuture.picBase64}"-->
+            <img  th:src="@{'data:image/jpeg;base64,'+${picuture.picBase64}}" />
+        </td>
+
+    </tr>
+</table>
+</body>
+</html>
